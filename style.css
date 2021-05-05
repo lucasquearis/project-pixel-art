@@ -1,12 +1,12 @@
 .color {
   display: inline-block;
   width: 100px;
-  height: 100px;  
+  height: 100px; 
   margin: 5px;
   border: black 1px solid;
 }
 
-.one {
+.black {
   background-color: black;
 }
 
