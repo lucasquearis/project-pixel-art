@@ -21,3 +21,19 @@
 .four {
   background-color: green;
 }
+
+td {
+  width: 100px;
+  height: 100px; 
+  margin: 5px;
+  border: black 1px solid;
+  background-color: white;
+}
+
+th {
+  width: 100px;
+  height: 100px; 
+  margin: 5px;
+  border: black 1px solid;
+  background-color: white;
+}
