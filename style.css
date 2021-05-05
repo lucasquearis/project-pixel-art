@@ -1,0 +1,23 @@
+.color {
+  display: inline-block;
+  width: 100px;
+  height: 100px;  
+  margin: 5px;
+  border: black 1px solid;
+}
+
+.one {
+  background-color: black;
+}
+
+.two {
+  background-color: red;
+}
+
+.three {
+  background-color: blue;
+}
+
+.four {
+  background-color: green;
+}
