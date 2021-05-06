@@ -44,20 +44,33 @@ for(let index = 1; index <= numeroQuadrado; index += 1){
   selecQuadrado.appendChild(createColuna);
 }
 
-// Exercício 6
+// Exercício 6 e 7
 selecTh[0].addEventListener('click', function selecPreto(){
   selecTh[0].className = 'color black selected'
+  selecTh[1].className = 'color two'
+  selecTh[2].className = 'color three'
+  selecTh[3].className = 'color four'
 })
 
 selecTh[1].addEventListener('click', function selecColorTwo(){
+  selecTh[0].className = 'color black'
   selecTh[1].className = 'color two selected'
+  selecTh[2].className = 'color three'
+  selecTh[3].className = 'color four'
 })
 
 selecTh[2].addEventListener('click', function selecColorThree(){
+  selecTh[0].className = 'color black'
+  selecTh[1].className = 'color two'
   selecTh[2].className = 'color three selected'
+  selecTh[3].className = 'color four'
 })
 
 selecTh[3].addEventListener('click', function selecColorFour(){
+  selecTh[0].className = 'color black'
+  selecTh[1].className = 'color two'
+  selecTh[2].className = 'color three'
   selecTh[3].className = 'color four selected'
 })
 }
+
