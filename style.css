@@ -22,7 +22,7 @@
   background-color: green;
 }
 
-td, tr {
+.pixel {
   width: 40px;
   height: 40px; 
   margin: 5px;

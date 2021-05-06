@@ -1,4 +1,5 @@
-// Exercício 1
+window.onload = function() {
+  // Exercício 1
 const selecBody = document.getElementById('body');
 const createH1 = document.createElement('h1');
 createH1.innerHTML ='Paleta de Cores'
@@ -27,6 +28,19 @@ for(index = 0; index < arrayCor.length; index += 1){
 }
 
 // Exercício 4
+const createQuadrado = document.createElement('table');
+selecBody.appendChild(createQuadrado);
+createQuadrado.id = 'pixel-board'
+let numeroQuadrado = 5
+const selecQuadrado = document.getElementById('pixel-board')
 
-
-
+for(let index = 1; index <= numeroQuadrado; index += 1){
+  const createColuna = document.createElement('tr');
+  for(let index2 = 0; index2 < numeroQuadrado; index2 += 1){
+    const createTd = document.createElement('td');
+    createColuna.appendChild(createTd);
+    createTd.className = 'pixel'
+  }
+  selecQuadrado.appendChild(createColuna);
+}
+}
