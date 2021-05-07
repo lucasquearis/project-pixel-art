@@ -26,6 +26,17 @@ const selecTh = document.querySelectorAll('.color ')
 for(index = 0; index < arrayCor.length; index += 1){
   selecTh[index].className = 'color '+arrayCor[index];
 }
+// Exercício 9
+const criarBotao = document.createElement('button')
+selecBody.appendChild(criarBotao)
+criarBotao.id = 'clear-board'
+criarBotao.innerHTML = 'Limpar'
+criarBotao.addEventListener('click', function(){
+  for(let index = 0; index < numeroMaximoQuadrado; index += 1){
+    selecPixel[index].style.backgroundColor = 'white'
+  }
+})
+
 
 // Exercício 4 e 5
 const createQuadrado = document.createElement('table');
@@ -75,12 +86,6 @@ selecTh[3].addEventListener('click', function selecColorFour(){
 
 // Exercício 8
 
-
-
-
-
-
-
 const palleteSelect = document.querySelector('#color-palette')
 let corSelecionada = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color');
 const numeroMaximoQuadrado = (numeroQuadrado * numeroQuadrado)
@@ -101,6 +106,8 @@ for(let index = 0; index < numeroMaximoQuadrado; index += 1){
   palleteSelect.addEventListener('click', function(){
     corSelecionada = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color')
   })
+
+
 }
 
 
