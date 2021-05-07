@@ -72,5 +72,35 @@ selecTh[3].addEventListener('click', function selecColorFour(){
   selecTh[2].className = 'color three'
   selecTh[3].className = 'color four selected'
 })
+
+// Exercício 8
+
+
+
+
+
+
+
+const palleteSelect = document.querySelector('#color-palette')
+let corSelecionada = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color');
+const numeroMaximoQuadrado = (numeroQuadrado * numeroQuadrado)
+const selecPixel = document.querySelectorAll('.pixel')
+for(let index = 0; index < numeroMaximoQuadrado; index += 1){
+  selecPixel[index].style.backgroundColor = 'white'
 }
+
+for(let index = 0; index < numeroMaximoQuadrado; index += 1){
+    selecPixel[index].addEventListener('click', function (event){
+      if(event.target.style.backgroundColor === corSelecionada){
+        event.target.style.backgroundColor = 'white'
+      } else {
+        event.target.style.backgroundColor = corSelecionada
+      }
+    })
+  }
+  palleteSelect.addEventListener('click', function(){
+    corSelecionada = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color')
+  })
+}
+
 
