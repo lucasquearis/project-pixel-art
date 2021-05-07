@@ -32,18 +32,48 @@ selecBody.appendChild(criarBotao)
 criarBotao.id = 'clear-board'
 criarBotao.innerHTML = 'Limpar'
 criarBotao.addEventListener('click', function(){
+  const numeroMaximoQuadrado = (numeroQuadrado * numeroQuadrado)
+  const selecPixel = document.querySelectorAll('.pixel')
   for(let index = 0; index < numeroMaximoQuadrado; index += 1){
     selecPixel[index].style.backgroundColor = 'white'
   }
 })
 
+// Exercicio 10
+const input = document.createElement('input')
+input.type = 'number'
+input.min = '1'
+input.max = '7'
+selecBody.appendChild(input)
+input.id = 'board-size'
+const createQuadrado = document.createElement('table');
+const botaoTamanho = document.createElement('button')
+selecBody.appendChild(botaoTamanho)
+botaoTamanho.id = 'generate-board'
+botaoTamanho.innerHTML = 'VQV'
+botaoTamanho.addEventListener('click', valorInput)
+let numeroQuadrado = 5
+function valorInput() {
+  numeroQuadrado = document.getElementById('board-size').value;
+  if (numeroQuadrado === ''){
+    alert("Board inválido!")
+  } else {
+  createQuadrado.innerHTML = ''
+  fazerQuadrados(numeroQuadrado);
+  mudarCorPixel();
+  }
+  
+}
+
 
 // Exercício 4 e 5
-const createQuadrado = document.createElement('table');
+
 selecBody.appendChild(createQuadrado);
 createQuadrado.id = 'pixel-board'
-let numeroQuadrado = 5
+
 const selecQuadrado = document.getElementById('pixel-board')
+function fazerQuadrados(numeroQuadrado){
+
 
 for(let index = 1; index <= numeroQuadrado; index += 1){
   const createColuna = document.createElement('tr');
@@ -54,7 +84,8 @@ for(let index = 1; index <= numeroQuadrado; index += 1){
   }
   selecQuadrado.appendChild(createColuna);
 }
-
+}
+fazerQuadrados(5)
 // Exercício 6 e 7
 selecTh[0].addEventListener('click', function selecPreto(){
   selecTh[0].className = 'color black selected'
@@ -88,26 +119,28 @@ selecTh[3].addEventListener('click', function selecColorFour(){
 
 const palleteSelect = document.querySelector('#color-palette')
 let corSelecionada = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color');
-const numeroMaximoQuadrado = (numeroQuadrado * numeroQuadrado)
-const selecPixel = document.querySelectorAll('.pixel')
-for(let index = 0; index < numeroMaximoQuadrado; index += 1){
-  selecPixel[index].style.backgroundColor = 'white'
-}
 
-for(let index = 0; index < numeroMaximoQuadrado; index += 1){
-    selecPixel[index].addEventListener('click', function (event){
-      if(event.target.style.backgroundColor === corSelecionada){
-        event.target.style.backgroundColor = 'white'
-      } else {
-        event.target.style.backgroundColor = corSelecionada
-      }
-    })
+function mudarCorPixel(){
+  const numeroMaximoQuadrado = (numeroQuadrado * numeroQuadrado)
+  const selecPixel = document.querySelectorAll('.pixel')
+  for(let index = 0; index < numeroMaximoQuadrado; index += 1){
+    selecPixel[index].style.backgroundColor = 'white'
   }
+  
+  for(let index = 0; index < numeroMaximoQuadrado; index += 1){
+      selecPixel[index].addEventListener('click', function (event){
+        if(event.target.style.backgroundColor === corSelecionada){
+          event.target.style.backgroundColor = 'white'
+        } else {
+          event.target.style.backgroundColor = corSelecionada
+        }
+      })
+    }
+}
+mudarCorPixel();
   palleteSelect.addEventListener('click', function(){
     corSelecionada = window.getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color')
   })
-
-
 }
 
 
