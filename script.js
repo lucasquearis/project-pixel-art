@@ -41,9 +41,7 @@ criarBotao.addEventListener('click', function(){
 
 // Exercicio 10
 const input = document.createElement('input')
-input.type = 'number'
-input.min = '1'
-input.max = '7'
+
 selecBody.appendChild(input)
 input.id = 'board-size'
 const createQuadrado = document.createElement('table');
@@ -54,16 +52,16 @@ botaoTamanho.innerHTML = 'VQV'
 botaoTamanho.addEventListener('click', valorInput)
 let numeroQuadrado = 5
 function valorInput() {
-  numeroQuadrado = document.getElementById('board-size').value;
-  if (numeroQuadrado === ''){
+  numeroQuadrado2 = document.getElementById('board-size').value;
+  if (numeroQuadrado2 === ''){
     alert("Board inválido!")
-  }else if(numeroQuadrado < 5){
+  }else if(numeroQuadrado2 < 5){
     createQuadrado.innerHTML = ''
-    fazerQuadrados()
+    fazerQuadrados(5)
     mudarCorPixel();
-  } else if (numeroQuadrado > 7){
+  } else if (numeroQuadrado2 > 7){
     createQuadrado.innerHTML = ''
-    fazerQuadrados()
+    fazerQuadrados(7)
     mudarCorPixel();
   } else {
   createQuadrado.innerHTML = ''
@@ -131,8 +129,8 @@ let corSelecionada = window.getComputedStyle(document.querySelector('.selected')
 function mudarCorPixel(){
   const numeroMaximoQuadrado = (numeroQuadrado * numeroQuadrado)
   const selecPixel = document.querySelectorAll('.pixel')
-  for(let index = 0; index < numeroMaximoQuadrado; index += 1){
-    selecPixel[index].style.backgroundColor = 'white'
+  for(let index2 = 0; index2 < numeroMaximoQuadrado; index2 += 1){
+    selecPixel[index2].style.backgroundColor = 'white'
   }
   
   for(let index = 0; index < numeroMaximoQuadrado; index += 1){
