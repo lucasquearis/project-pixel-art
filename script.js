@@ -43,7 +43,7 @@ criarBotao.addEventListener('click', function(){
 const input = document.createElement('input')
 input.type = 'number'
 input.min = '1'
-input.max = '7'
+input.max = '10'
 selecBody.appendChild(input)
 input.id = 'board-size'
 const createQuadrado = document.createElement('table');
@@ -57,6 +57,12 @@ function valorInput() {
   numeroQuadrado = document.getElementById('board-size').value;
   if (numeroQuadrado === ''){
     alert("Board inválido!")
+  }else if(numeroQuadrado < 5){
+    createQuadrado.innerHTML = ''
+    fazerQuadrados(5)
+  } else if (numeroQuadrado > 7){
+    createQuadrado.innerHTML = ''
+    fazerQuadrados(7)
   } else {
   createQuadrado.innerHTML = ''
   fazerQuadrados(numeroQuadrado);
