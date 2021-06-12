@@ -8,8 +8,8 @@ const createTitle = () => {
   selectBody.appendChild(createH1);
 };
 
+const createTable = document.createElement('table');
 const createPallet = () => {
-  const createTable = document.createElement('table');
   createTable.id = 'color-palette';
   selectBody.appendChild(createTable);
 
@@ -48,6 +48,29 @@ const criarQuadrado = (numb) => {
   }
 };
 
+const defaultColorPallet = () => {
+  const selectPallet = document.querySelectorAll('.color ');
+  const arrayCor = ['black', 'two', 'three', 'four'];
+  const stringColor = 'color';
+  selectPallet.forEach((color, index) => {
+    const corSozinha = color;
+    corSozinha.className = `${stringColor} ${arrayCor[index]}`;
+  });
+};
+
+const selectColorPalltet = () => {
+  createTable.addEventListener('click', (event) => {
+    const cliqueAlvo = event;
+    const condicao = cliqueAlvo.target.className === 'color black selected';
+    if (condicao) {
+      classnameForPallet();
+    } else {
+      defaultColorPallet();
+      cliqueAlvo.target.className += ' selected';
+    }
+  });
+};
+
 // const criarBotao = document.createElement('button');
 // selecBody.appendChild(criarBotao);
 // criarBotao.id = 'clear-board';
@@ -60,16 +83,6 @@ const criarQuadrado = (numb) => {
 //   }
 // });
 
-// const selecQuadrado = document.getElementById('pixel-board');
-// function fazerQuadrados(numb) {
-//     for (let index2 = 0; index2 < numb; index2 += 1) {
-//       const createTd = document.createElement('td');
-//       createColuna.appendChild(createTd);
-//       createTd.className = 'pixel';
-//     }
-//     selecQuadrado.appendChild(createColuna);
-//   }
-// }
 // const corSelecionada = window
 //   .getComputedStyle(document.querySelector('.selected')).getPropertyValue('background-color');
 
@@ -164,4 +177,5 @@ window.onload = () => {
   createPallet();
   classnameForPallet();
   criarQuadrado(5);
+  selectColorPalltet();
 };
