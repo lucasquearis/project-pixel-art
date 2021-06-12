@@ -1,18 +1,17 @@
 // Exercício 1
-const selecBody = document.getElementById('body');
+const selectBody = document.getElementById('body');
 
-const criarTitulo = () => {
+const createTitle = () => {
   const createH1 = document.createElement('h1');
   createH1.innerHTML = 'Paleta de Cores';
   createH1.id = 'title';
-  selecBody.appendChild(createH1);
+  selectBody.appendChild(createH1);
 };
 
-// Exercicio 2 e 3.
-const createrPallet = () => {
+const createPallet = () => {
   const createTable = document.createElement('table');
   createTable.id = 'color-palette';
-  selecBody.appendChild(createTable);
+  selectBody.appendChild(createTable);
 
   const selectTable = document.getElementById('color-palette');
 
@@ -33,12 +32,21 @@ const classnameForPallet = () => {
   });
 };
 
-// const string = 'color';
-
-// for (let index = 0; index < arrayCor.length; index += 1) {
-//   selecTh[index].className = string + arrayCor[index];
-// }
-// const numeroQuadrado = 5;
+const criarQuadrado = (numb) => {
+  const createQuadrado = document.createElement('table');
+  createQuadrado.id = 'pixel-board';
+  selectBody.appendChild(createQuadrado);
+  for (let index = 1; index <= numb; index += 1) {
+    const createColuna = document.createElement('tr');
+    for (let index2 = 0; index2 < numb; index2 += 1) {
+      const createTd = document.createElement('td');
+      createColuna.appendChild(createTd);
+      createTd.className = 'pixel';
+    }
+    const selecQuadrado = document.getElementById('pixel-board');
+    selecQuadrado.appendChild(createColuna);
+  }
+};
 
 // const criarBotao = document.createElement('button');
 // selecBody.appendChild(criarBotao);
@@ -52,14 +60,8 @@ const classnameForPallet = () => {
 //   }
 // });
 
-// const createQuadrado = document.createElement('table');
-// createQuadrado.id = 'pixel-board';
-// selecBody.appendChild(createQuadrado);
-
 // const selecQuadrado = document.getElementById('pixel-board');
 // function fazerQuadrados(numb) {
-//   for (let index = 1; index <= numb; index += 1) {
-//     const createColuna = document.createElement('tr');
 //     for (let index2 = 0; index2 < numb; index2 += 1) {
 //       const createTd = document.createElement('td');
 //       createColuna.appendChild(createTd);
@@ -158,7 +160,8 @@ const classnameForPallet = () => {
 // Exercício 8
 
 window.onload = () => {
-  criarTitulo();
-  createrPallet();
+  createTitle();
+  createPallet();
   classnameForPallet();
+  criarQuadrado(5);
 };
