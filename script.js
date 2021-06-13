@@ -176,6 +176,15 @@ const randomPalletColors = () => {
   selectPallet4.style.backgroundColor = randomNumber();
 };
 
+const randomButton = () => {
+  const newButton = document.createElement('button');
+  newButton.id = 'random-button';
+  newButton.innerText = 'Mudar Cores';
+  const selectPallet = document.querySelector('#color-palette');
+  selectPallet.insertAdjacentElement('beforebegin', newButton);
+  newButton.addEventListener('click', () => randomPalletColors());
+};
+
 window.onload = () => {
   createTitle();
   createPallet();
@@ -188,4 +197,5 @@ window.onload = () => {
   createInput();
   submitButton();
   randomPalletColors();
+  randomButton();
 };
