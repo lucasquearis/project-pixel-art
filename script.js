@@ -32,10 +32,7 @@ const classnameForPallet = () => {
   });
 };
 
-const criarQuadrado = (numb) => {
-  const createQuadrado = document.createElement('table');
-  createQuadrado.id = 'pixel-board';
-  selectBody.appendChild(createQuadrado);
+const forQuadrado = (numb) => {
   for (let index = 1; index <= numb; index += 1) {
     const createColuna = document.createElement('tr');
     for (let index2 = 0; index2 < numb; index2 += 1) {
@@ -46,6 +43,18 @@ const criarQuadrado = (numb) => {
     const selecQuadrado = document.getElementById('pixel-board');
     selecQuadrado.appendChild(createColuna);
   }
+};
+
+const clearSquares = () => {
+  const getSquare = document.querySelector('#pixel-board');
+  getSquare.remove();
+};
+
+const criarQuadrado = (numb) => {
+  const createQuadrado = document.createElement('table');
+  createQuadrado.id = 'pixel-board';
+  selectBody.appendChild(createQuadrado);
+  forQuadrado(numb);
 };
 
 const defaultColorPallet = () => {
@@ -103,6 +112,63 @@ const createButton = () => {
   });
 };
 
+const populateDiv = () => {
+  const newInput = document.createElement('input');
+  const newButton = document.createElement('button');
+  newInput.setAttribute('type', 'number');
+  newInput.id = 'board-size';
+  newButton.id = 'generate-board';
+  newButton.innerText = 'VQV';
+  newInput.setAttribute('max', 50);
+  newInput.setAttribute('min', 1);
+  const selectDivSubmit = document.querySelector('#divSubmit');
+  selectDivSubmit.appendChild(newInput);
+  selectDivSubmit.appendChild(newButton);
+};
+
+const createInput = () => {
+  const newDiv = document.createElement('div');
+  newDiv.id = 'divSubmit';
+  const selectCleanButton = document.querySelector('#clear-board');
+  selectCleanButton.insertAdjacentElement('afterend', newDiv);
+  populateDiv();
+};
+
+const submitButton = () => {
+  const selectSubmitButton = document.querySelector('#generate-board');
+  selectSubmitButton.addEventListener('click', () => {
+    let catchInputValue = document.querySelector('#board-size').value;
+    if (catchInputValue === '') {
+      alert('Board inválido!');
+    } else {
+      clearSquares();
+      if (catchInputValue < 5) {
+        catchInputValue = 5;
+      } else if (catchInputValue > 50) {
+        catchInputValue = 50;
+      }
+      criarQuadrado(catchInputValue);
+    }
+  });
+};
+
+const randomNumber = () => {
+  const template = `rgb(${Math
+    .round(Math.random() * 255)}, ${Math
+    .round(Math.random() * 255)}, ${Math
+    .round(Math.random() * 255)})`;
+  return template;
+};
+const randomPalletColors = () => {
+  const selectPallet2 = document.querySelector('.two');
+  const selectPallet3 = document.querySelector('.three');
+  const selectPallet4 = document.querySelector('.four');
+  selectPallet2.style.backgroundColor = randomNumber();
+  selectPallet3.style.backgroundColor = randomNumber();
+  selectPallet4.style.backgroundColor = randomNumber();
+  console.log(randomNumber());
+};
+
 window.onload = () => {
   createTitle();
   createPallet();
@@ -111,4 +177,7 @@ window.onload = () => {
   selectColorPalltet();
   squarePaint();
   createButton();
+  createInput();
+  submitButton();
+  randomPalletColors();
 };
